@@ -1,0 +1,55 @@
+int xC=50;
+int yC=20;
+int xB=0;
+int yB=200;
+int a=1;
+int b=0;
+int c=0;
+int d=0;
+int e=0;
+PFont font;
+    int score;
+
+void setup (){
+size(800,600);
+font = createFont("SansSerif",1);
+      textFont(font,20);
+}
+
+void draw (){
+  background (255);
+  rect(xC,yC,30,60);
+  if (keyPressed && (key == CODED)) {
+    if (keyCode == UP) {
+      yC--;
+    } else if (keyCode == DOWN) {
+     yC++;
+    }
+  }
+  xB = xB + a;
+  
+  if (xB==800) {a=-1;
+  }
+  if (xB==0) {a=+1;
+  }
+  fill(0, 0, 255);          
+  ellipse(xB, yB, 5, 5);
+  
+  String myText = "score: " + score;
+     
+      
+      text(myText,350,50);
+  
+  b = xC;
+  c = yC;
+  d = xC+2;
+  e = yC+2;
+ 
+  
+  if (xB<d&&((yB>yC)&&(yB<yC+60))){
+    if (xB>b&&((yB>yC)&&(yB<yC+60))){
+      score = score+1;
+      delay (100);
+    }}
+    
+}
