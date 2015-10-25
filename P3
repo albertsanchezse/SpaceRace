@@ -1,0 +1,28 @@
+int xC=50;
+int yC=20;
+int xB=0;
+int yB=200;
+int a=1;
+void setup (){
+size(800,600);
+}
+
+void draw (){
+  background (255);
+  rect(xC,yC,30,60);
+  if (keyPressed && (key == CODED)) {
+    if (keyCode == UP) {
+      yC--;
+    } else if (keyCode == DOWN) {
+     yC++;
+    }
+  }
+  xB = xB + a;
+  
+  if (xB==800) {a=-1;
+  }
+  if (xB==0) {a=+1;
+  }
+  fill(0, 0, 255);          
+  ellipse(xB, yB, 5, 5);
+  }
