@@ -1,0 +1,103 @@
+int xC=400;
+int yC=450;
+int xB=0;
+int yB=200;
+int a=1;
+int b=0;
+int c=0;
+int d=0;
+int e=0;
+int a2=800;
+int yB2=100;
+int xB2=0;
+int b2=0;
+int c2=0;
+int d2=0;
+int e2=0;
+PFont font;
+    int score;
+PFont font2;
+String time = "030";
+int t;
+int interval = 30;
+
+void setup (){
+size(800,600);
+font = createFont("SansSerif",1);
+      textFont(font,20);
+font2 = createFont("SansSerif",1);
+      textFont(font,20);
+}
+
+void draw (){
+  background (255);
+  rect(xC,yC,30,60);
+  if (keyPressed && (key == CODED)) {
+    if (keyCode == UP) {
+      yC--;
+    } else if (keyCode == DOWN) {
+     yC++;
+    }
+  }
+  
+  xB = xB + a;
+  
+  if (xB==800) {a=-1;
+  }
+  if (xB==0) {a=+1;
+  }
+  fill(0, 0, 255);          
+  ellipse(xB, yB, 5, 5);
+  
+  //String myText = "score: " + score;
+    
+      
+      //text(myText,350,50);
+      
+
+      
+  
+  b = xC;
+  c = yC;
+  d = xC+2;
+  e = yC+2;
+ 
+  
+  if (xB<d&&((yB>yC)&&(yB<yC+60))){
+    if (xB>b&&((yB>yC)&&(yB<yC+60))){
+      //score = score+1;
+      delay (100);
+      xC=400;
+      yC=450;
+    }}
+    
+     xB2 = xB2 + a2;
+  
+  if (xB2==800) {a2=-1;
+  }
+  if (xB2==0) {a2=+1;
+  }
+  fill(0, 0, 255);          
+  ellipse(xB2, yB2, 5, 5);
+  
+  b2 = xC;
+  c2 = yC;
+  d2 = xC+2;
+  e2 = yC+2;
+  
+  if (xB2<d&&((yB2>yC)&&(yB2<yC+60))){
+    if (xB2>b&&((yB2>yC)&&(yB2<yC+60))){
+      //score = score+1;
+      delay (100);
+       xC=400;
+      yC=450;
+    }}
+   
+   t = interval-int(millis()/1000);
+    time = nf(t , 2);
+     text(time, 700, 100);
+     
+     if (t==0){
+      interval+=30;
+     }
+}
