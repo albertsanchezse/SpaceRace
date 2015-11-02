@@ -1,0 +1,45 @@
+int xB=0;
+int yB=200;
+int a=1;
+int i=0;
+int j=0;
+int xa=0;
+int ya=0;
+//int [][] P=new
+int [][] asteroides= 
+{ 
+{100,200},
+{300,400} };
+void setup (){ 
+size (800,600);
+
+              
+for (i=0; i<2; i++){
+
+  xa=asteroides[i][0];
+  ya=asteroides[i][1];
+ellipse(xa,ya,10,10);
+}
+}
+
+
+
+
+void draw (){ 
+  background (255);
+ 
+ for (i=0; i<2; i++){
+
+  xa=asteroides[i][0];
+  ya=asteroides[i][1];
+
+  asteroides[i][0]=asteroides[i][0]+a;
+  
+    if (xa==800) {a=-1;
+  }
+  if (xa==0) {a=+1;
+  }
+  fill(0, 0, 255);          
+  ellipse(xa, ya, 5, 5);
+ }
+}
