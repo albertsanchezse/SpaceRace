@@ -150,7 +150,7 @@ void draw (){
       yC=450;
     }}}
     
- if (yC==0){
+ if (yC<0){
    xC=400;
    yC=450;
    score = score+1;}
