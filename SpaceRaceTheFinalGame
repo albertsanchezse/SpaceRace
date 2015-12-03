@@ -1,0 +1,202 @@
+int xC=600;
+int yC=450;
+int xC2=30;
+int yC2=60;
+int xC20=200;
+int yC20=450;
+int xC22=30;
+int yC22=60;
+int xB=0;
+int yB=200;
+int a=1;
+int i=0;
+int j=0;
+int xa=0;
+int ya=0;
+int b=0;
+int c=0;
+int d=0;
+int e=0;
+int f=0;
+int g=0;
+int h=0;
+int k=0;
+int a2=3;
+
+
+PFont font;
+    int score2;
+PFont font1;
+    int score1;
+PFont font2;
+String time = "030";
+int t;
+int interval = 30;
+
+
+   
+int [][] asteroides= 
+{ 
+{round(random(0,800)),round(random(50,500)),},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+{round(random(0,800)),round(random(50,500))},
+};
+ 
+
+void setup (){
+  background (0);
+size(800,600);
+fill(#FFFFFF);
+font = createFont("SansSerif",1);
+      textFont(font,20);
+font2 = createFont("SansSerif",1);
+      textFont(font,20);
+for (i=0; i<50; i++){
+
+  xa=asteroides[i][0];
+  ya=asteroides[i][1];
+ {
+ellipse(xa,ya,10,10);
+}}
+}
+
+void draw (){
+  background (0);
+  fill(#66FFCC);
+  rect(xC,yC,xC2,yC2);
+  rect(xC20,yC20,xC22,yC22);
+  if (keyPressed && (key == CODED)) {
+    if (keyCode == UP) {
+      yC=yC-(a2*(score2+1));
+    } else if (keyCode == DOWN) {
+     yC=yC+(a2*(score2+1));
+    }
+  }
+  if (keyPressed) {
+    if (key == 'w' || key == 'w') {
+      yC20=yC20-(a2*(score1+1));
+    } else if (key == 's' || key == 's') {
+     yC20=yC20+(a2*(score1+1));
+    }
+  }
+  
+  
+  String myText2 = "score 2: " + score2;
+  String myText1 = "score 1: " + score1;
+    
+      
+      text(myText2,600,50);
+      text(myText1,200,50);
+   
+   t = interval-int(millis()/1000);
+    time = nf(t , 2);
+     text(time, 400, 100);
+     
+     if (t==0){
+      interval+=30;
+      xC=600;
+      yC=450;
+      xC20=200;
+      yC20=450;
+     }
+  for (i=0; i<50; i++){
+
+  xa=asteroides[i][0];
+  ya=asteroides[i][1];
+  if(score1==score2){
+  asteroides[i][0]=asteroides[i][0]+a*(score2+1);
+  }
+  else {
+    asteroides[i][0]=asteroides[i][0]+a;
+  }
+  if (xa==0){
+    xa= xa+1;}
+    if (asteroides[i][0]>800) {asteroides[i][0]=0;
+  } 
+  fill(#996600);          
+  ellipse(xa, ya, 5, 5);
+  
+  b = xC;
+  c = yC;
+  d = xC+30;
+  e = yC+60;
+  f = xC20;
+  g = yC20;
+  h = xC20+30;
+  k = yC20+60;
+ if (xa<h&&((ya>yC20)&&(ya<yC20+yC22))){
+    if (xa>g&&((ya>yC20)&&(ya<yC20+yC22))){
+       xC20=200;
+       yC20=450;
+    }}
+ if (xa<d&&((ya>yC)&&(ya<yC+yC2))){
+    if (xa>b&&((ya>yC)&&(ya<yC+yC2))){
+       xC=600;
+      yC=450;
+    }}}
+    
+ if (yC<0){
+   xC=600;
+   yC=450;
+   score2 = score2+1;}
+ if (yC20<0){
+   xC20=200;
+   yC20=450;
+   score1 = score1+1;}
+   
+ if ((score2<2)&&(score2>0)){
+    asteroides[i][0]=asteroides[i][0]+1+10;
+ }
+ if ((score1<2)&&(score1>0)){
+    asteroides[i][0]=asteroides[i][0]+1+10;
+ }
+   
+}
